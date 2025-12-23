@@ -1,0 +1,168 @@
+:root {
+    --frame-width: 130px;
+    --frame-height: 150px;
+    --cols: 4;
+    --rows: 3;
+    --total-cycle-time: 20s;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #87CEEB;
+    overflow: hidden;
+}
+
+.info-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 15px 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.info-panel h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-panel h2 {
+    margin: 5px 0 0 0;
+    font-size: 18px;
+    color: #34495e;
+    font-weight: 500;
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background-color: #4CAF50;
+    z-index: 10;
+}
+
+.grass-texture {
+    width: 100%;
+    height: 20px;
+    background: repeating-linear-gradient(
+            90deg,
+            #4CAF50,
+            #4CAF50 20px,
+            #45a049 20px,
+            #45a049 40px
+    );
+}
+
+.tree {
+    position: absolute;
+    bottom: 20px;
+    left: 20%;
+    z-index: 11;
+    transform-origin: bottom center;
+    animation: wind-sway 4s ease-in-out infinite alternate;
+}
+
+.trunk {
+    width: 25px;
+    height: 120px;
+    background-color: #8B4513;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.leaves {
+    position: absolute;
+    background-color: #228B22;
+    border-radius: 50%;
+    box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1);
+}
+
+.main-leaves { width: 120px; height: 120px; top: -90px; left: 50%; transform: translateX(-50%); }
+.left-leaves { width: 80px; height: 80px; top: -50px; left: -30px; background-color: #32CD32; }
+.right-leaves { width: 90px; height: 90px; top: -60px; right: -35px; background-color: #006400; z-index: -1; }
+
+.cloud {
+    position: absolute;
+    background: #fff;
+    border-radius: 50px;
+    z-index: 5;
+    opacity: 0.9;
+}
+.cloud::after, .cloud::before { content: ''; position: absolute; background: inherit; border-radius: 50%; }
+
+.cloud-1 { width: 120px; height: 40px; top: 15%; left: -150px; animation: move-clouds 20s linear infinite; }
+.cloud-1::after { width: 50px; height: 50px; top: -25px; left: 15px; }
+.cloud-2 { width: 100px; height: 30px; top: 10%; left: -150px; animation: move-clouds 25s linear infinite 5s; opacity: 0.7; }
+.cloud-3 { width: 140px; height: 50px; top: 25%; left: -150px; animation: move-clouds 18s linear infinite 2s; }
+.cloud-3::after { width: 60px; height: 60px; top: -30px; left: 20px; }
+
+.bee-sprite {
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+
+    width: var(--frame-width);
+    height: var(--frame-height);
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-size: calc(var(--frame-width) * var(--cols)) calc(var(--frame-height) * var(--rows));
+
+    image-rendering: pixelated;
+
+    animation:
+            hover-fly 3s ease-in-out infinite alternate,
+            evolution-sequence var(--total-cycle-time) step-end infinite;
+}
+
+@keyframes evolution-sequence {
+    0%   { background-position: 0 0; }
+    2%   { background-position: calc(var(--frame-width) * -1) 0; }
+    4%   { background-position: calc(var(--frame-width) * -2) 0; }
+    6%   { background-position: calc(var(--frame-width) * -3) 0; }
+
+    8%   { background-position: 0 calc(var(--frame-height) * -1); }
+    10%  { background-position: calc(var(--frame-width) * -1) calc(var(--frame-height) * -1); }
+    12%  { background-position: calc(var(--frame-width) * -2) calc(var(--frame-height) * -1); }
+    14%  { background-position: calc(var(--frame-width) * -3) calc(var(--frame-height) * -1); }
+
+    16%  { background-position: 0 calc(var(--frame-height) * -2); }
+    18%  { background-position: calc(var(--frame-width) * -1) calc(var(--frame-height) * -2); }
+    20%  { background-position: calc(var(--frame-width) * -2) calc(var(--frame-height) * -2); }
+
+    22%, 100% { background-position: calc(var(--frame-width) * -3) calc(var(--frame-height) * -2); }
+}
+
+@keyframes move-clouds {
+    from { left: -150px; }
+    to { left: 110%; }
+}
+
+@keyframes wind-sway {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(3deg); }
+}
+
+@keyframes hover-fly {
+    from { margin-top: 0; }
+    to { margin-top: -20px; }
+}

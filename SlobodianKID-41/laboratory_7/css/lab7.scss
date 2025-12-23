@@ -1,0 +1,174 @@
+$font-main: 'Montserrat', sans-serif;
+$font-cursive: 'Great Vibes', cursive;
+
+$color-bg-start: #2b0a0a;
+$color-bg-end: #590d0d;
+$color-card-bg: #fffbf2;
+$color-text-primary: #2c3e50;
+$color-gold: #d4af37;
+$color-gold-hover: #b59226;
+$color-shadow: rgba(0, 0, 0, 0.3);
+
+$spacing-base: 24px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-main;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.holiday-scene {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, $color-bg-end 0%, $color-bg-start 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+
+  &__decor {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    pointer-events: none;
+    z-index: 5;
+  }
+}
+
+.bauble {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: relative;
+  transform-origin: top center;
+  animation: swing 3s ease-in-out infinite alternate;
+  box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    width: 2px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-50%);
+  }
+
+  &--red {
+    background: radial-gradient(circle at 30% 30%, #ff6b6b, #c0392b);
+    animation-delay: 0s;
+  }
+
+  &--gold {
+    background: radial-gradient(circle at 30% 30%, #f1c40f, #f39c12);
+    animation-delay: 1s;
+    top: 20px;
+  }
+
+  &--small {
+    width: 40px;
+    height: 40px;
+    animation-duration: 2.5s;
+
+    &::before {
+      top: -80px;
+      height: 80px;
+    }
+  }
+}
+
+.gift-card {
+  background-color: $color-card-bg;
+  padding: $spacing-base * 2;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 20px 40px $color-shadow;
+  position: relative;
+  z-index: 10;
+  border: 8px solid double $color-gold;
+
+  animation: slideUp 1s ease-out forwards;
+
+  &__header {
+    margin-bottom: $spacing-base;
+  }
+
+  &__icon {
+    font-size: 3rem;
+    display: inline-block;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  }
+
+  &__title {
+    font-family: $font-cursive;
+    font-size: 3.5rem;
+    color: $color-bg-end;
+    margin-bottom: $spacing-base / 2;
+    line-height: 1.2;
+  }
+
+  &__message {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $color-text-primary;
+    margin-bottom: $spacing-base * 1.5;
+  }
+
+  &__action {
+    background-color: $color-bg-end;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    box-shadow: 0 4px 15px rgba(192, 57, 43, 0.4);
+
+    animation: pulse 2s infinite;
+
+    &:hover {
+      background-color: darken($color-bg-end, 10%);
+      transform: scale(1.05);
+      animation: none;
+    }
+  }
+}
+
+@keyframes swing {
+  0% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba($color-bg-end, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba($color-bg-end, 0); }
+  100% { box-shadow: 0 0 0 0 rgba($color-bg-end, 0); }
+}

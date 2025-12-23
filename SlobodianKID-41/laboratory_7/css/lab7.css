@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.holiday-scene {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #590d0d 0%, #2b0a0a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+
+.holiday-scene__decor {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.bauble {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+    transform-origin: top center;
+    animation: swing 3s ease-in-out infinite alternate;
+    box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2);
+}
+
+.bauble::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    width: 2px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-50%);
+}
+
+.bauble--red {
+    background: radial-gradient(circle at 30% 30%, #ff6b6b, #c0392b);
+    animation-delay: 0s;
+}
+
+.bauble--gold {
+    background: radial-gradient(circle at 30% 30%, #f1c40f, #f39c12);
+    animation-delay: 1s;
+    top: 20px;
+}
+
+.bauble--small {
+    width: 40px;
+    height: 40px;
+    animation-duration: 2.5s;
+}
+
+.bauble--small::before {
+    top: -80px;
+    height: 80px;
+}
+
+.gift-card {
+    background-color: #fffbf2;
+    padding: 48px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 10;
+
+    border: 8px double #d4af37;
+
+    animation: slideUp 1s ease-out forwards;
+}
+
+.gift-card__header {
+    margin-bottom: 24px;
+}
+
+.gift-card__icon {
+    font-size: 3rem;
+    display: inline-block;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.gift-card__title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #590d0d;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.gift-card__message {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #2c3e50;
+    margin-bottom: 36px;
+}
+
+.gift-card__action {
+    background-color: #590d0d;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    box-shadow: 0 4px 15px rgba(192, 57, 43, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.gift-card__action:hover {
+    background-color: #3e0909;
+    transform: scale(1.05);
+    animation: none;
+}
+
+@keyframes swing {
+    0% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(89, 13, 13, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(89, 13, 13, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(89, 13, 13, 0); }
+}

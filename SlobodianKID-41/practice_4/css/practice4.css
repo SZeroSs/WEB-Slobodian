@@ -1,0 +1,155 @@
+:root {
+    --base-unit: calc(100vw / 35);
+
+    --bg-page: #222222;
+    --bg-keyboard: #1a1a1a;
+    --border-keyboard: #000000;
+
+    --bg-key: #333333;
+    --text-key: #eeeeee;
+    --shadow-key: #151515;
+
+    --accent-color: #00e5ff;
+    --active-bg: #222222;
+    --active-shadow: #00e5ff;
+
+    --font-main: 'Varela Round', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-page);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-main);
+    color: white;
+}
+
+.keyboard {
+    background-color: var(--bg-keyboard);
+    padding: calc(var(--base-unit) / 2);
+    border-radius: 12px;
+    border: 3px solid var(--border-keyboard);
+    box-shadow:
+            0 20px 50px rgba(0,0,0,0.5),
+            inset 0 0 0 2px #444;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: calc(var(--base-unit) / 2);
+    user-select: none;
+    transform: perspective(1000px) rotateX(2deg);
+}
+
+.section {
+    display: grid;
+    grid-template-rows: repeat(6, var(--base-unit));
+    grid-gap: calc(var(--base-unit) / 8);
+}
+
+.section.main-keys {
+    grid-template-columns: repeat(30, calc(var(--base-unit) / 2));
+}
+
+.section.nav-keys {
+    grid-template-columns: repeat(6, calc(var(--base-unit) / 2));
+}
+
+.section.numpad {
+    grid-template-columns: repeat(8, calc(var(--base-unit) / 2));
+    grid-auto-flow: dense;
+}
+
+.key {
+    background-color: var(--bg-key);
+    color: var(--text-key);
+    border-radius: 6px;
+    grid-column: span 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-size: calc(var(--base-unit) / 3.8);
+    cursor: pointer;
+    transition: all 0.05s ease-out; /* Пришвидшив анімацію */
+
+    box-shadow:
+            0 6px 0 var(--shadow-key),
+            0 6px 4px rgba(0,0,0,0.4),
+            inset 0 1px 0 rgba(255,255,255,0.1);
+
+    margin-bottom: 6px;
+    position: relative;
+    top: 0;
+}
+
+.key span {
+    display: block;
+    line-height: 1;
+}
+
+.sm-text { font-size: 0.55em; }
+.emptykey { grid-column: span 2; pointer-events: none; }
+
+/* Стилі для натиснутої клавіші (Active state) */
+.key:active,
+.key.active {
+    background-color: var(--active-bg) !important;
+    color: var(--accent-color) !important;
+    box-shadow:
+            0 0 0 var(--shadow-key),
+            0 0 0 rgba(0,0,0,0.4),
+            inset 0 0 10px rgba(0, 229, 255, 0.2),
+            0 0 15px var(--active-shadow);
+    transform: translateY(6px);
+    margin-bottom: 0;
+    margin-top: 6px;
+    border: 1px solid var(--accent-color);
+}
+
+.gap-1 { grid-column: span 2; }
+.gap-05 { grid-column: span 1; }
+
+.backspace  { grid-column: span 4; background-color: #444; }
+.tab        { grid-column: span 3; }
+.backslash  { grid-column: span 3; }
+.capslock   { grid-column: span 4; }
+.enter      { grid-column: span 4; background-color: #2c3e50; }
+.leftshift  { grid-column: span 5; }
+.rightshift { grid-column: span 5; }
+.leftctrl   { grid-column: span 3; color: #aaa; }
+.rightctrl  { grid-column: span 3; color: #aaa; }
+.space      { grid-column: span 16; }
+
+.key-esc { background-color: #c0392b; color: white; }
+
+.zero { grid-column: span 4; }
+
+.plus-num {
+    grid-row: span 2;
+    height: 100%;
+    margin-bottom: 6px;
+}
+
+.enter-num {
+    grid-row: span 2;
+    height: 100%;
+    margin-bottom: 6px;
+    background-color: #2c3e50;
+}
+
+.plus-num:active, .plus-num.active,
+.enter-num:active, .enter-num.active {
+    height: calc(100% - 6px);
+    margin-top: 6px;
+}

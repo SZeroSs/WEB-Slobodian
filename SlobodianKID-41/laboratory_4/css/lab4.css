@@ -1,0 +1,230 @@
+:root {
+    --border-color: #999;
+    --light-border: #ccc;
+    --text-color: #444;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.planner-container {
+    background-color: #fff;
+    width: 100%;
+    max-width: 1300px;
+    border: 2px solid var(--border-color);
+    border-bottom: 12px solid #888;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+}
+
+.header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.main-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem;
+    margin: 0;
+    line-height: 0.8;
+    color: #444;
+    text-transform: uppercase;
+}
+
+.header-center {
+    display: flex;
+    gap: 30px;
+    flex-grow: 1;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.habit-group {
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.input-group label {
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.line-input {
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    padding: 2px 0;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    padding-bottom: 5px;
+}
+
+.check-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.label-text {
+    font-size: 9px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 24% 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    flex-grow: 1;
+}
+
+.sidebar {
+    grid-row: 1 / -1;
+    border-right: 2px solid var(--border-color);
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.todo-header {
+    text-align: right;
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+.sidebar-section {
+    margin-bottom: 20px;
+}
+
+.grow-section {
+    flex-grow: 1;
+}
+
+.section-title {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.task-list li input[type="checkbox"] {
+    margin-right: 8px;
+    width: 14px;
+    height: 14px;
+}
+
+.text-line {
+    flex-grow: 1;
+    border: none;
+    border-bottom: 1px solid var(--light-border);
+    outline: none;
+    font-size: 14px;
+    color: #333;
+}
+
+.day-cell {
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.day-cell::after, .weekend-cell::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -1px;
+    border-width: 0 10px 10px 0;
+    border-style: solid;
+    border-color: transparent #999 transparent transparent;
+}
+
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    padding-right: 10px;
+}
+
+.day-input {
+    flex-grow: 1;
+    width: 100%;
+    border: none;
+    resize: none;
+    background: transparent;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.weekend-column {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.weekend-cell {
+    flex: 1;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.no-right-border {
+    border-right: none !important;
+}
+
+.no-bottom-border {
+    border-bottom: none !important;
+}

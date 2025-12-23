@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Dark Mode</title>
+    <link rel="stylesheet" href="css/practice3.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-left">
+        <div class="menu-icon" onclick="toggleSidebar()">
+            <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 24px; height: 24px; fill: white;"><g><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></g></svg>
+        </div>
+        <div class="logo">
+            <svg height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; fill: white;"><g><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FF0000"></path><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="white"></path></g></svg>
+            <span>YouTube</span>
+            <sup style="font-size: 10px; margin-left: 2px;">UA</sup>
+        </div>
+    </div>
+
+    <div class="header-center">
+        <div class="search-bar">
+            <input type="text" placeholder="Введіть запит">
+            <button class="search-btn">
+                <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 24px; height: 24px; fill: white;"><g><path d="M20.87 20.17l-5.59-5.59C16.35 13.35 17 11.75 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.75 0 3.35-.65 4.58-1.71l5.59 5.59.7-.71zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path></g></svg>
+            </button>
+        </div>
+        <div class="voice-icon">
+            <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 24px; height: 24px; fill: white;"><g><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"></path><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"></path></g></svg>
+        </div>
+    </div>
+
+    <div class="header-right">
+        <div class="icon">
+            <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 24px; height: 24px; fill: white;"><g><path d="M14 13.293l-4 2.5V8.707l4 2.5v2.086zM21 6H3v12h18V6zm-1 11H4V7h16v10z"></path></g></svg>
+        </div>
+        <div class="icon">
+            <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 24px; height: 24px; fill: white;"><g><path d="M10 20h4c0 1.1-.9 2-2 2s-2-.9-2-2zm10-2.65V19H4v-1.65l2-1.88v-5.15c0-2.92 1.56-5.22 4-5.98V3.96c0-1.42 1.49-2.5 2.99-2.5C14.49 1.46 16 2.53 16 3.96v.38c2.44.76 4 3.06 4 5.98v5.15l2 1.88zM19 9.66c0-3.13-1.78-5.66-5-5.66-3.22 0-5 2.53-5 5.66V15l-1 1v1h14v-1l-1-1V9.66z"></path></g></svg>
+        </div>
+        <div class="user-avatar">U</div>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="nav-item active">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-text">Головна</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">⚡</span>
+            <span class="nav-text">Shorts</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">📺</span>
+            <span class="nav-text">Підписки</span>
+        </div>
+        <hr>
+        <h4 class="section-title">Ви</h4>
+        <div class="nav-item">
+            <span class="nav-icon">🕒</span>
+            <span class="nav-text">Історія</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">🎬</span>
+            <span class="nav-text">Ваші відео</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">⏱️</span>
+            <span class="nav-text">Дивитись пізніше</span>
+        </div>
+        <hr>
+        <h4 class="section-title">Підписки</h4>
+        <div class="nav-item">
+            <div class="channel-dot"></div>
+            <span class="nav-text">SpaceX</span>
+        </div>
+        <div class="nav-item">
+            <div class="channel-dot"></div>
+            <span class="nav-text">TED</span>
+        </div>
+        <div class="nav-item">
+            <div class="channel-dot"></div>
+            <span class="nav-text">National Geo</span>
+        </div>
+    </aside>
+
+    <main class="content" id="content">
+
+        <div class="chips-container">
+            <button class="chip active">Усі</button>
+            <button class="chip">Ігри</button>
+            <button class="chip">Музика</button>
+            <button class="chip">Мікси</button>
+            <button class="chip">Прямі трансляції</button>
+            <button class="chip">Останні завантаження</button>
+            <button class="chip">Переглянуті</button>
+            <button class="chip">Нове для вас</button>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://picsum.photos/seed/101/640/360" alt="Thumbnail">
+                    <div class="duration">12:45</div>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar"></div>
+                    <div class="video-text">
+                        <h3 class="video-title">Неймовірні краєвиди Ісландії 4K</h3>
+                        <p class="channel-name">Travel World</p>
+                        <p class="meta-info">1.2 млн. переглядів • 1 місяць тому</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://picsum.photos/seed/202/640/360" alt="Thumbnail">
+                    <div class="duration">3:20</div>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar"></div>
+                    <div class="video-text">
+                        <h3 class="video-title">Топ 10 ігор 2024 року, які ви пропустили</h3>
+                        <p class="channel-name">GameDev UA</p>
+                        <p class="meta-info">45 тис. переглядів • 2 дні тому</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://picsum.photos/seed/305/640/360" alt="Thumbnail">
+                    <div class="duration">45:10</div>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar"></div>
+                    <div class="video-text">
+                        <h3 class="video-title">Chill Lofi Beats to Study/Relax to</h3>
+                        <p class="channel-name">Lofi Girl</p>
+                        <p class="meta-info">25 тис. глядачів зараз</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://picsum.photos/seed/415/640/360" alt="Thumbnail">
+                    <div class="duration">8:15</div>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar"></div>
+                    <div class="video-text">
+                        <h3 class="video-title">Як працює Flexbox за 8 хвилин</h3>
+                        <p class="channel-name">Web Academy</p>
+                        <p class="meta-info">150 тис. переглядів • 1 рік тому</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://picsum.photos/seed/525/640/360" alt="Thumbnail">
+                    <div class="duration">15:00</div>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar"></div>
+                    <div class="video-text">
+                        <h3 class="video-title">Новий MacBook Pro M4 - Огляд</h3>
+                        <p class="channel-name">Tech Reviewer</p>
+                        <p class="meta-info">800 тис. переглядів • 3 години тому</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://picsum.photos/seed/630/640/360" alt="Thumbnail">
+                    <div class="duration">22:30</div>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar"></div>
+                    <div class="video-text">
+                        <h3 class="video-title">Готуємо ідеальну пасту Карбонара</h3>
+                        <p class="channel-name">Chef Ukraine</p>
+                        <p class="meta-info">2.5 млн. переглядів • 5 місяців тому</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://picsum.photos/seed/744/640/360" alt="Thumbnail">
+                    <div class="duration">10:05</div>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar"></div>
+                    <div class="video-text">
+                        <h3 class="video-title">Фінал Ліги Чемпіонів: Огляд матчу</h3>
+                        <p class="channel-name">Football Hub</p>
+                        <p class="meta-info">300 тис. переглядів • 10 годин тому</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://picsum.photos/seed/862/640/360" alt="Thumbnail">
+                    <div class="duration">5:45</div>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar"></div>
+                    <div class="video-text">
+                        <h3 class="video-title">Майбутнє штучного інтелекту</h3>
+                        <p class="channel-name">Science Today</p>
+                        <p class="meta-info">90 тис. переглядів • 2 тижні тому</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('collapsed');
+        document.getElementById('content').classList.toggle('expanded');
+    }
+</script>
+
+</body>
+</html>

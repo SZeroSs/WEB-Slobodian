@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Plan - Lab 4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/lab4.css">
+</head>
+<body>
+
+<div class="planner-container">
+
+    <header class="header">
+        <div class="header-left">
+            <h1 class="main-title">WEEKLY PLAN</h1>
+        </div>
+
+        <div class="header-center">
+            <div class="input-group">
+                <label>WEEK OF</label>
+                <input type="text" class="line-input">
+            </div>
+            <div class="input-group habit-group">
+                <label>HEALTHY HABIT</label>
+                <input type="text" class="line-input">
+            </div>
+        </div>
+
+        <div class="header-right">
+            <div class="check-group">
+                <span class="label-text">ROCKED IT</span>
+                <input type="checkbox" class="box-check">
+            </div>
+            <div class="check-group">
+                <span class="label-text">ROOM FOR IMPROVEMENT</span>
+                <input type="checkbox" class="box-check">
+            </div>
+        </div>
+    </header>
+
+    <div class="main-grid">
+
+        <aside class="sidebar">
+            <div class="todo-header">TO DO</div>
+
+            <div class="sidebar-section">
+                <div class="section-title">TOP 3 GOALS</div>
+                <ul class="task-list">
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section grow-section">
+                <div class="section-title">EVERYTHING ELSE</div>
+                <ul class="task-list">
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="section-title">NEXT WEEK</div>
+                <ul class="task-list">
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                    <li><input type="checkbox"><input type="text" class="text-line"></li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="day-cell">
+            <div class="day-header">MONDAY <input type="checkbox"></div>
+            <textarea class="day-input"></textarea>
+        </div>
+        <div class="day-cell">
+            <div class="day-header">TUESDAY <input type="checkbox"></div>
+            <textarea class="day-input"></textarea>
+        </div>
+        <div class="day-cell no-right-border">
+            <div class="day-header">WEDNESDAY <input type="checkbox"></div>
+            <textarea class="day-input"></textarea>
+        </div>
+
+        <div class="day-cell no-bottom-border">
+            <div class="day-header">THURSDAY <input type="checkbox"></div>
+            <textarea class="day-input"></textarea>
+        </div>
+        <div class="day-cell no-bottom-border">
+            <div class="day-header">FRIDAY <input type="checkbox"></div>
+            <textarea class="day-input"></textarea>
+        </div>
+
+        <div class="weekend-column no-right-border no-bottom-border">
+            <div class="weekend-cell">
+                <div class="day-header">SATURDAY <input type="checkbox"></div>
+                <textarea class="day-input"></textarea>
+            </div>
+            <div class="weekend-cell no-bottom-border">
+                <div class="day-header">SUNDAY <input type="checkbox"></div>
+                <textarea class="day-input"></textarea>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

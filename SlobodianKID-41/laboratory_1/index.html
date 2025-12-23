@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна №1: Реєстрація</title>
+    <link rel="stylesheet" href="css/lab1.css">
+</head>
+<body>
+
+<h2>Форма реєстрації</h2>
+
+<form action="https://webhook.site/2d2f4c8a-d05f-41eb-bba8-1ad6a7848071" method="POST">
+
+    <div>
+        <label for="firstname">Ім'я:</label>
+        <input type="text" id="firstname" name="firstname" required placeholder="Введіть ваше ім'я">
+    </div>
+
+    <div>
+        <label for="lastname">Прізвище:</label>
+        <input type="text" id="lastname" name="lastname" required placeholder="Введіть ваше прізвище">
+    </div>
+
+    <div>
+        <label for="email">Електронна пошта:</label>
+        <input type="email" id="email" name="email" required placeholder="example@mail.com">
+    </div>
+
+    <div>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+
+    <div>
+        <label for="confirm_password">Підтвердження паролю:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+    </div>
+
+    <div>
+        <label for="birthdate">Дата народження:</label>
+        <input type="date" id="birthdate" name="birthdate">
+    </div>
+
+    <div>
+        <label for="gender">Стать:</label>
+        <select id="gender" name="gender">
+            <option value="" disabled selected>Оберіть зі списку</option>
+            <option value="male">Чоловіча</option>
+            <option value="female">Жіноча</option>
+            <option value="other">Інше</option>
+        </select>
+    </div>
+
+    <button type="submit">Зареєструватися</button>
+
+</form>
+
+</body>
+</html>
